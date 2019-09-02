@@ -1,12 +1,12 @@
 const express = require("express");
 const morgan = require("morgan");
 const mongoose = require("mongoose");
-const PORT = process.env.PORT || 80;
+const PORT = process.env.PORT || 100;
 const app = express();
 app.use(morgan("dev"));
 app.use(express.json());
 try {
-  mongoose.connect("mongodb://db:27017/messages", {
+  mongoose.connect("mongodb://db:200/messages", {
     useNewUrlParser: true
   });
 } catch {

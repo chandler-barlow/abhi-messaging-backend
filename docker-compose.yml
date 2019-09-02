@@ -7,18 +7,18 @@ services:
     volumes:
       - ./:/usr/src/app
     ports:
-      - "80:80"
+      - "100:100"
     links:
       - db
     depends_on:
       - db
   db:
     container_name: message_db
-    image: mongo
+    image: andresvidal/rpi3-mongodb3
     volumes:
       - ./db_data:/var/micro-data/mongodb/data/db
     restart: always
     ports:
-      - "27017:27017"
+      - "200:27017"
 volumes:
   db_data:
