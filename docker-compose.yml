@@ -1,0 +1,24 @@
+version: "3.7"
+services:
+  app:
+    container_name: docker-messaging-project
+    restart: always
+    build: .
+    volumes:
+      - ./:/usr/src/app
+    ports:
+      - "80:80"
+    links:
+      - db
+    depends_on:
+      - db
+  db:
+    container_name: message_db
+    image: mongo
+    volumes:
+      - ./db_data:/var/micro-data/mongodb/data/db
+    restart: always
+    ports:
+      - "27017:27017"
+volumes:
+  db_data:
